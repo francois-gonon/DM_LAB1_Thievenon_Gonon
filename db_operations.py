@@ -14,14 +14,15 @@ from datetime import datetime
 # Constants
 DB_CONFIG = {
     'user': 'root',
-    'password': 'myPas$',
+    'password': 'password',
     'host': 'localhost',
     'port': 3306,
-    'database': 'flight_reservation'
+    'database': 'benchmarking_2'
 }
+dump_file_path = '/dumps/'
 
-DUMP_FILE = 'flight_database_dump.sql'
-COMPRESSED_DUMP = 'flight_database_dump.zip'
+DUMP_FILE = 'DUMP.sql'
+COMPRESSED_DUMP = 'benchmark.sql.zip'
 MAX_RETRIES = 3
 RETRY_DELAY = 2
 
@@ -187,17 +188,7 @@ def check_data_consistency():
             'data': duplicate_seats
         }
         
-        # Check 2: Overlapping flights for passengers
-        start_time = time.time()
-        cur.execute("""
-            [Implementation of overlapping flight check]
-        """)
-        overlapping_flights = cur.fetchall()
-        results['overlapping_flights'] = {
-            'count': len(overlapping_flights),
-            'time': time.time() - start_time,
-            'data': overlapping_flights
-        }
+        
         
         # Add additional consistency checks here...
         
